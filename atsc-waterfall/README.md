@@ -33,6 +33,30 @@ This flow graph demonstrates using the PlutoSDR with GNU Radio to recieve ATSC t
 
 ## Configuration
 
+### Finding channels
+
+Using the FCC's [DTV Reception Maps](https://www.fcc.gov/media/engineering/dtvmaps) tool, we can find channels that should have a strong signal in our area.
+
+<figure style="text-align: center;">
+    <img src="dtv-map.png" alt="DTV reception map tool" />
+    <figcaption>
+    The FCC's DTV Reception Map Tool
+    </figcaption>
+</figure>
+
+Enter an address into the tool to get a list of channels that should be receiveable in that area. In this example, we used BYU's Engineering Building as our location.
+
+To get information about a channel, click on the channel's callsign. Note the RF Channel field. You will need this information in the next section.
+
+<figure style="text-align: center;">
+    <img src="rf-channel.png" alt="Channel details" />
+    <figcaption>
+    Viewing detailed channel information
+    </figcaption>
+</figure>
+
+### Tuning
+
 The channel number can be changed by entering a number between 14 and 51 in the text box at the bottom of the window or by using the arrow buttons to the right of the text box.
 
 Below is a list of ATSC channel numbers and their corresponding frequencies. ATSC channels are 6MHz wide, with the center of each channel being 6MHz away from the channels directly above and below it in the frequency spectrum. The ATSC pilot tone is a constant tone broadcast at 309.440559 KHz above the bottom of the channel. This tone is used by the reciever to lock on to the signal. The center frequency of a channel can be found by simply adding 3MHz to the lower edge listed in the table for a particular channel number.
@@ -77,3 +101,12 @@ Below is a list of ATSC channel numbers and their corresponding frequencies. ATS
 |49 | 680 | 680.31 | 686 |
 |50 | 686 | 686.31 | 692 |
 |51 | 692 | 692.31 | 698 |
+
+To tune to a channel that you have found, using the FCC's DTV Reception Map tool, enter the channel's RF Number into the box, and push the enter key. The SDR will now tune to the channel that you have indicated. We will use RF Channel 28, which is FOX, in this example.
+
+<figure style="text-align: center;">
+    <img src="FOX.png" alt="Tuned to FOX" />
+    <figcaption>
+    Tuning to RF Channel 28, FOX.
+    </figcaption>
+</figure>
